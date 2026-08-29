@@ -17,5 +17,5 @@ https://kanishka-code.github.io/Index6/
 
 ## 👩‍💻 Author
 Kanishka Tyagi
-BCA Student - HiTech Institute, Ghaziabad
+BCA Student - HLMCollege, Ghaziabad
 [LinkedIn](https://www.linkedin.com/in/kanishka-tyagi-2429853b3)
