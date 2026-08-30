@@ -3,7 +3,7 @@
 This is a responsive personal portfolio website built with HTML & CSS.
 
 ## 🚀 Live Demo
-https://kanishka-code.github.io/Index6/
+https://Kanishka06992.github.io/Index6/
 
 ## ✨ Features
 - Responsive Design (Mobile + Desktop)
