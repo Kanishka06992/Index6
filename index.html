@@ -4,51 +4,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kanishka | Portfolio</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f8f9fa;color:#333}
-.header{background:#111;color:#fff;text-align:center;padding:60px 20px}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f4f4}
+.header{background:#111;color:#fff;text-align:center;padding:50px 20px}
 .header h1{font-size:40px;margin:0}
 .header p{color:#aaa;font-size:18px}
-.container{max-width:900px;margin:auto;padding:30px 20px}
-.card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin-bottom:25px}
-.btn{display:inline-block;background:#111;color:#fff;padding:12px 25px;border-radius:25px;text-decoration:none;margin:5px}
+.container{max-width:900px;margin:auto;padding:20px}
+.card{background:#fff;padding:25px;border-radius:15px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.btn{display:inline-block;background:#111;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;margin:5px}
+.btn-white{background:#fff;color:#111;}
 .skills span{display:inline-block;background:#eee;padding:8px 15px;border-radius:20px;margin:5px}
+input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
 </style>
 </head>
 <body>
 <div class="header">
 <h1>Hi, I'm Kanishka 👋</h1>
-<p>Web Developer | Python Learner | Student</p>
+<p>Web Developer | Python Learner | BCA Student</p>
+<p>Built everything on PHONE - No Laptop Needed!</p>
 <br>
-<a class="btn" href="https://github.com/Kanishka06992">GitHub</a>
-<a class="btn" href="#projects">Projects</a>
+<a class="btn btn-white" href="https://github.com/Kanishka06992">GitHub</a>
+<a class="btn btn-white" href="https://www.linkedin.com/in/kanishka06992">LinkedIn</a>
+<a class="btn btn-white" href="https://drive.google.com">Resume</a>
 </div>
 
 <div class="container">
 <div class="card">
 <h2>About Me</h2>
-<p>I am a passionate learner building websites and learning Python. Currently exploring GitHub Pages and Web Development.</p>
-</div>
-
-<div class="card">
-<h2>Skills</h2>
+<p>I am a BCA student at HLM College, learning Full Stack Development and Python using only my mobile phone. I love building websites and solving problems.</p>
 <div class="skills">
-<span>HTML</span><span>CSS</span><span>Python</span><span>GitHub</span><span>Git</span>
+<span>HTML</span><span>CSS</span><span>Python</span><span>GitHub</span><span>AI Basics</span>
 </div>
-</div>
-
-<div class="card" id="projects">
-<h2>Projects</h2>
-<p><b>1. Index6 Portfolio</b> - My personal portfolio website hosted on GitHub Pages.</p>
-<p><b>2. Python for Beginners</b> - Learning Python basics and projects.</p>
-<p><b>3. My First Page</b> - My first HTML website.</p>
 </div>
 
 <div class="card">
-<h2>Contact</h2>
-<p>Email: tyagikanishka612@email.com</p>
-<p>GitHub: github.com/Kanishka06992</p>
-<p>Location:Ghaziabad, UttarPradesh</p>
+<h2>🚀 My Projects</h2>
+<div style="border:1px solid #eee;padding:15px;border-radius:10px;margin-top:10px">
+<h3>My First Page</h3>
+<p>My first responsive website.</p>
+<a class="btn" href="https://kanishka06992.github.io/My-first-page/">Live Demo</a>
+<a class="btn" href="https://github.com/Kanishka06992/My-first-page">Code</a>
+</div>
+<div style="border:1px solid #eee;padding:15px;border-radius:10px;margin-top:15px">
+<h3>Python for Beginners</h3>
+<p>Basic Python programs for interview practice.</p>
+<a class="btn" href="https://github.com/Kanishka06992/Python-for-beginners">View Code</a>
+</div>
+</div>
+
+<div class="card">
+<h2>📩 Contact Me</h2>
+<form action="https://formspree.io/f/xqabjvlg" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+<button type="submit" class="btn" style="width:100%">Send Message</button>
+</form>
 </div>
 </div>
 </body>
-  </html>
+</html>
