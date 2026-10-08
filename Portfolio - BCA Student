@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio - BCA Student</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+  body{background:#f5f7fb;color:#222}
+  header{background:#111827;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+  header a{color:white;text-decoration:none;margin-left:15px}
+  .hero{padding:60px 8%;display:flex;flex-wrap:wrap;align-items:center;background:white}
+  .hero-text{flex:1;min-width:280px}
+  .hero-text h1{font-size:42px;margin:10px 0}
+  .hero-text span{color:#2563eb}
+  .hero-text p{margin:15px 0;color:#555}
+  .btn{background:#2563eb;color:white;padding:12px 20px;border:none;border-radius:6px;text-decoration:none;display:inline-block;margin-top:10px}
+  .section{padding:50px 8%}
+  .card{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.05);margin:10px;flex:1;min-width:250px}
+  .flex{display:flex;flex-wrap:wrap;gap:15px}
+  h2{margin-bottom:20px}
+  .skill{padding:8px 12px;background:#e0e7ff;border-radius:20px;display:inline-block;margin:5px;font-size:14px}
+  footer{background:#111827;color:white;text-align:center;padding:20px;margin-top:30px}
+</style>
+</head>
+<body>
+
+<header>
+  <b>PORTFOLIO</b>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-text">
+    <p>Hello, I am</p>
+    <h1>KanishkaTyagi<br><span>BCA Student</span></h1>
+    <p>BCA 2nd Year student from HLM College. Aspiring Full Stack Web Developer looking for Job / Internship.</p>
+    <a href="#" class="btn">Download Resume</a>
+  </div>
+</div>
+
+<div class="section" id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>I am a BCA student passionate about Web Development and DBMS. I have learned C, Java, HTML, CSS and MySQL. I want to work in an IT company where I can grow my skills.</p>
+  </div>
+</div>
+
+<div class="section" id="skills">
+  <h2>My Skills</h2>
+  <span class="skill">C / C++</span>
+  <span class="skill">Java</span>
+  <span class="skill">HTML, CSS</span>
+  <span class="skill">JavaScript</span>
+  <span class="skill">MySQL</span>
+  <span class="skill">DBMS</span>
+  <span class="skill">Python</span>
+</div>
+
+<div class="section" id="projects">
+  <h2>My Projects</h2>
+  <div class="flex">
+    <div class="card">
+      <h3>1. Student Management System</h3>
+    </div>
+    <div class="card">
+      <h3>2. E-Commerce Website</h3>
+      <p>Frontend: HTML/CSS. Simple online shopping site.</p>
+    </div>
+    <div class="card">
+      <h3>3. Portfolio Website</h3>
+      <p>This website made using HTML & CSS.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="card">
+    <p><b>Email:</b> tyagikanishka612@email.com</p>
+    <p><b>LinkedIn:</b> linkedin.com/in/Kanishka Tyagi</p>
+    <p><b>Location:</b> Ghaziabad</p>
+  </div>
+</div>
+
+<footer>
+  Made by KanishkaTyagi| BCA 2026
+</footer>
+
+</body>
+</html>
