@@ -34,6 +34,108 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 .feat{background:#15151d; padding:20px; border-radius:16px; border:1px solid #222;}
 .feat h4{color:#a855f7; margin-bottom:8px;}
 
+/* MENU POPUP - View Menu click pe khulega */
+#view-menu{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; justify-content:center; align-items:center; z-index:100; padding:20px;}
+#view-menu:target{display:flex;}
+.menu-box{background:#15151d; border:1px solid #333; border-radius:24px; width:100%; max-width:700px; padding:30px; max-height:90vh; overflow-y:auto; position:relative;}
+.menu-box h2{font-size:32px; text-align:center; margin-bottom:20px;}
+.menu-box h2 span{color:#a855f7;}
+.close{position:absolute; top:15px; right:20px; font-size:28px; color:#aaa; text-decoration:none;}
+.close:hover{color:white;}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:20px;}
+@media(max-width:600px){.grid{grid-template-columns:1fr;}}
+.item{background:#1e1e2a; padding:18px; border-radius:14px; border:1px solid #2a2a3a;}
+.item h4{margin-bottom:5px;}
+.item p{color:#888; font-size:13px;}
+.item b{color:#a855f7; font-size:18px; display:block; margin-top:8px;}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">COSMIC<span>.CAFE</span></div>
+  <div class="menu"><a href="#">Home</a><a href="#view-menu">Menu</a><a href="#">Contact</a></div>
+</div>
+
+<div class="hero">
+  <div class="left">
+    <h1>Taste The <span>Universe</span> In Every Sip</h1>
+    <p>Futuristic cafe with galaxy-infused coffee, made for creators, coders & dreamers like you.</p>
+    <div class="btns">
+      <a href="#view-menu" class="btn1">Order Now</a>
+      <a href="#view-menu" class="btn2">View Menu</a>
+    </div>
+  </div>
+  <div class="right">
+    <div class="card">
+      <div class="circle"></div>
+      <h3>Galaxy Latte</h3>
+      <p>Blue spirulina + espresso + stardust foam. Our bestseller since 2025.</p>
+      <div class="price">₹299</div>
+      <a href="#view-menu" class="btn1" style="width:100%; text-align:center; display:block; text-decoration:none;">Add to Cart</a>
+    </div>
+  </div>
+</div>
+
+<div class="features">
+  <div class="feat"><h4>🚀 Fast Delivery</h4><p>Delivered in 20 mins in Ghaziabad</p></div>
+  <div class="feat"><h4>🌙 Open Till 2 AM</h4><p>Made for night coders like us</p></div>
+</div>
+
+<!-- VIEW MENU POPUP -->
+<div id="view-menu">
+  <div class="menu-box">
+    <a href="#" class="close">✕</a>
+    <h2>Our <span>Cosmic</span> Menu</h2>
+    <p style="text-align:center; color:#888; margin-bottom:10px;">Click ✕ to close</p>
+    <div class="grid">
+      <div class="item"><h4>🌌 Galaxy Latte</h4><p>Blue spirulina + espresso + shimmer foam</p><b>₹299</b></div>
+      <div class="item"><h4>🪐 Nebula Mocha</h4><p>Dark chocolate + cosmic dust + cream</p><b>₹349</b></div>
+      <div class="item"><h4>☄️ Meteor Frappe</h4><p>Cold brew + vanilla + meteor crunch</p><b>₹279</b></div>
+      <div class="item"><h4>🌙 Lunar Cappuccino</h4><p>Oat milk + cinnamon + moon glow</p><b>₹249</b></div>
+      <div class="item"><h4>⭐ Stardust Espresso</h4><p>Pure strong shot with glitter</p><b>₹199</b></div>
+      <div class="item"><h4>🌠 Comet Cold Brew</h4><p>24hr brewed + icy comet</p><b>₹269</b></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Cafe</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', sans-serif;}
+body{background:#0a0a0f; color:white; overflow-x:hidden;}
+.navbar{display:flex; justify-content:space-between; padding:25px 8%; align-items:center;}
+.logo{font-size:24px;font-weight:900; letter-spacing:2px;}
+.logo span{color:#a855f7;}
+.menu a{color:#aaa; text-decoration:none; margin-left:25px;}
+.hero{display:flex; flex-wrap:wrap; align-items:center; padding:60px 8%; gap:40px;}
+.left{flex:1; min-width:300px;}
+.left h1{font-size:58px; line-height:1.1;}
+.left h1 span{background: linear-gradient(90deg,#a855f7,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.left p{color:#888; margin:20px 0 30px; font-size:18px;}
+.btns a{padding:14px 32px; border-radius:30px; text-decoration:none; font-weight:bold; display:inline-block; margin-right:12px; cursor:pointer;}
+.btn1{background:linear-gradient(90deg,#a855f7,#ec4899); color:white; box-shadow:0 0 20px #a855f7aa;}
+.btn2{border:1px solid #333; color:white; transition:0.3s;}
+.btn2:hover{background:white; color:black;}
+.right{flex:1; min-width:300px; display:flex; justify-content:center; position:relative;}
+.card{
+ width:320px; height:420px; background: rgba(255,255,255,0.06);
+ backdrop-filter: blur(20px); border:1px solid rgba(255,255,255,0.1);
+ border-radius:24px; padding:25px; animation: float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)}}
+.circle{width:90px; height:90px; background: linear-gradient(135deg,#a855f7,#ec4899); border-radius:50%; margin-bottom:20px; box-shadow:0 0 30px #a855f7;}
+.card h3{font-size:22px; margin-bottom:10px;}
+.card p{color:#aaa; font-size:14px;}
+.price{font-size:32px; font-weight:800; margin:20px 0;}
+.features{display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:60px; padding:0 8%;}
+.feat{background:#15151d; padding:20px; border-radius:16px; border:1px solid #222;}
+.feat h4{color:#a855f7; margin-bottom:8px;}
+
 /* MENU POPUP - Ye magic hai */
 #view-menu{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; justify-content:center; align-items:center; z-index:100; padding:20px;}
 #view-menu:target{display:flex;}
