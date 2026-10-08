@@ -2,8 +2,10 @@
 
 This is a responsive personal portfolio website built with HTML & CSS.
 
-## 🚀 Live Demo
-https://Kanishka06992.github.io/Index6/
+🚀 Live Demo
+
+**Main Portfolio:** https://Kanishka06992.github.io/Index6/
+**BCA Portfolio:** https://Kanishka06992.github.io/Index6/Portfolio-bca.html
 
 ## ✨ Features
 - Responsive Design (Mobile + Desktop)
