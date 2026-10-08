@@ -13,6 +13,8 @@ This is a responsive personal portfolio website built with HTML & CSS.
 **Space Travel:**
 https://kanishka06992.github.io/Index6/space-travel.html
 
+**E-Commerce Website:**
+https://kanishka06992.github.io/Index6/e-commerce.html
 
 **Cosmic Cafe - Neon Website:** https://Kanishka06992.github.io/Index6/cosmic-cafe.html
 
