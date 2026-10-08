@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Cafe</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
+body{background:#0a0a0f; color:white; overflow-x:hidden;}
+.navbar{display:flex; justify-content:space-between; padding:25px 8%; align-items:center;}
+.logo{font-size:24px;font-weight:900; letter-spacing:2px;}
+.logo span{color:#a855f7;}
+.menu a{color:#aaa; text-decoration:none; margin-left:25px;}
+.hero{display:flex; flex-wrap:wrap; align-items:center; padding:60px 8%; gap:40px;}
+.left{flex:1; min-width:300px;}
+.left h1{font-size:58px; line-height:1.1;}
+.left h1 span{background: linear-gradient(90deg,#a855f7,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.left p{color:#888; margin:20px 0 30px; font-size:18px;}
+.btns a{padding:14px 32px; border-radius:30px; text-decoration:none; font-weight:bold; display:inline-block; margin-right:12px;}
+.btn1{background:linear-gradient(90deg,#a855f7,#ec4899); color:white; box-shadow:0 0 20px #a855f7aa;}
+.btn2{border:1px solid #333; color:white;}
+.right{flex:1; min-width:300px; display:flex; justify-content:center; position:relative;}
+.card{
+ width:320px; height:420px; background: rgba(255,255,255,0.06);
+ backdrop-filter: blur(20px); border:1px solid rgba(255,255,255,0.1);
+ border-radius:24px; padding:25px; animation: float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)}}
+.circle{width:90px; height:90px; background: linear-gradient(135deg,#a855f7,#ec4899); border-radius:50%; margin-bottom:20px; box-shadow:0 0 30px #a855f7;}
+.card h3{font-size:22px; margin-bottom:10px;}
+.card p{color:#aaa; font-size:14px;}
+.price{font-size:32px; font-weight:800; margin:20px 0;}
+.features{display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:60px; padding:0 8%;}
+.feat{background:#15151d; padding:20px; border-radius:16px; border:1px solid #222;}
+.feat h4{color:#a855f7; margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">COSMIC<span>.CAFE</span></div>
+  <div class="menu"><a href="#">Menu</a><a href="#">About</a><a href="#">Contact</a></div>
+</div>
+
+<div class="hero">
+  <div class="left">
+    <h1>Taste The <span>Universe</span> In Every Sip</h1>
+    <p>Futuristic cafe with galaxy-infused coffee, made for creators, coders & dreamers like you.</p>
+    <div class="btns">
+      <a href="#" class="btn1">Order Now</a>
+      <a href="#" class="btn2">View Menu</a>
+    </div>
+  </div>
+  <div class="right">
+    <div class="card">
+      <div class="circle"></div>
+      <h3>Galaxy Latte</h3>
+      <p>Blue spirulina + espresso + stardust foam. Our bestseller since 2025.</p>
+      <div class="price">₹299</div>
+      <a href="#" class="btn1" style="width:100%; text-align:center;">Add to Cart</a>
+    </div>
+  </div>
+</div>
+
+<div class="features">
+  <div class="feat"><h4>🚀 Fast Delivery</h4><p>Delivered in 20 mins in Ghaziabad</p></div>
+  <div class="feat"><h4>🌙 Open Till 2 AM</h4><p>Made for night coders like us</p></div>
+</div>
+
+</body>
+</html>
