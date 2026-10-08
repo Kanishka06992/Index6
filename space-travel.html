@@ -6,82 +6,135 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 body{background:#05070f;color:white;overflow-x:hidden}
-nav{display:flex;justify-content:space-between;padding:22px 8%;align-items:center;position:sticky;top:0;background:rgba(5,7,15,0.8);backdrop-filter:blur(15px);z-index:10;border-bottom:1px solid #1a1a2a}
+nav{display:flex;justify-content:space-between;padding:22px 8%;align-items:center;position:sticky;top:0;background:rgba(5,7,15,0.85);backdrop-filter:blur(15px);z-index:10;border-bottom:1px solid #1a1a2a}
 .logo{font-weight:900;font-size:22px;letter-spacing:3px} .logo span{color:#6c5cff}
-nav a{color:#8a8da0;text-decoration:none;margin-left:22px;font-size:14px} nav a:hover{color:white}
+nav a{color:#8a8da0;text-decoration:none;margin-left:22px;font-size:14px}
 .hero{padding:70px 8% 40px;display:flex;flex-wrap:wrap;align-items:center;gap:40px}
 .h-left{flex:1;min-width:320px} .h-left h1{font-size:64px;line-height:0.95} .h-left h1 span{background:linear-gradient(90deg,#6c5cff,#ff4ecd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .h-left p{color:#8a8da0;margin:20px 0 30px;font-size:18px;line-height:1.6}
-.btn{padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block;margin-right:10px}
+.btn{padding:14px 30px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block;margin:8px 8px 8px 0;cursor:pointer}
 .b1{background:white;color:black} .b2{border:1px solid #2a2d45;color:white} .b2:hover{background:white;color:black;transition:0.3s}
 .h-right{flex:1;min-width:320px;display:flex;justify-content:center}
 .planet{width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #6c5cff, #1a1040 60%, #000);box-shadow:0 0 80px #6c5cffb3, inset -20px -20px 60px #000;position:relative;animation:spin 20s linear infinite}
 @keyframes spin{from{transform:rotate(0)} to{transform:rotate(360deg)}}
-.planet::after{content:"";position:absolute;top:50%;left:50%;width:140%;height:20px;border:3px solid #ffffff22;border-radius:50%;transform:translate(-50%,-50%) rotate(-20deg)}
 .cards{padding:40px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
 .c{background:#101223;border:1px solid #1e2035;border-radius:20px;padding:22px;transition:0.3s} .c:hover{transform:translateY(-6px);border-color:#6c5cff;box-shadow:0 10px 30px #6c5cff22}
 .c h3{margin:12px 0 6px} .c p{color:#8a8da0;font-size:13px} .c b{color:#6c5cff;font-size:22px;display:block;margin-top:12px}
 .tag{display:inline-block;padding:6px 12px;background:#6c5cff22;border:1px solid #6c5cff44;color:#6c5cff;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px}
 .popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);display:none;justify-content:center;align-items:center;z-index:100;padding:20px}
 .popup:target{display:flex}
-.box{background:#101223;border:1px solid #2a2d45;border-radius:24px;max-width:480px;width:100%;padding:30px;position:relative;text-align:center}
+.box{background:#101223;border:1px solid #2a2d45;border-radius:24px;max-width:480px;width:100%;padding:30px;position:relative;max-height:90vh;overflow-y:auto}
 .box h2{font-size:28px;margin-bottom:10px} .box input{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:1px solid #2a2d45;background:#0a0c1a;color:white;outline:none}
-.box input:focus{border-color:#6c5cff}
-.close{position:absolute;top:14px;right:18px;text-decoration:none;color:#888;font-size:24px}
-.go{width:100%;padding:14px;margin-top:14px;border:none;border-radius:30px;background:linear-gradient(90deg,#6c5cff,#ff4ecd);color:white;font-weight:800;font-size:16px;cursor:pointer;display:block;text-decoration:none}
+.close{position:absolute;top:14px;right:18px;text-decoration:none;color:#888;font-size:26px}
+.go{width:100%;padding:14px;margin-top:14px;border:none;border-radius:30px;background:linear-gradient(90deg,#6c5cff,#ff4ecd);color:white;font-weight:800;font-size:16px;cursor:pointer;display:block;text-align:center;text-decoration:none}
+.list{text-align:left;margin:15px 0} .list p{margin:8px 0;color:#aaa;font-size:14px} .list b{color:white}
 </style>
 </head>
 <body>
 
 <nav>
 <div class="logo">ORBIT<span>.SPACE</span></div>
-<div><a href="#">Missions</a><a href="#">Destinations</a><a href="#book">Book</a></div>
+<div><a href="#explore">Destinations</a><a href="#book">Book</a></div>
 </nav>
 
 <div class="hero">
 <div class="h-left">
 <div class="tag">🚀 NEXT LAUNCH: 12 DEC 2026</div>
 <h1>Travel Beyond <span>Earth</span></h1>
-<p>Book your seat to Moon, Mars & ISS. First commercial space travel made for dreamers, coders & explorers like you from India.</p>
+<p>Book your seat to Moon, Mars & ISS. First commercial space travel made for dreamers like you.</p>
 <div>
 <a href="#book" class="btn b1">Book Your Seat →</a>
-<a href="#dest" class="btn b2">Explore Destinations</a>
+<a href="#explore" class="btn b2">Explore Destinations</a>
 </div>
-<p style="margin-top:25px;font-size:13px;color:#555">✓ Trusted by ISRO • 4.9/5 • 2,400+ Travelers</p>
 </div>
 <div class="h-right"><div class="planet"></div></div>
 </div>
 
-<div class="cards" id="dest">
-<div class="c"><span class="tag">MOST POPULAR</span><h3>🌙 Moon - Lunar Base</h3><p>3 Days • Low gravity walk • Earth view dinner. Depart from Sriharikota.</p><b>₹12.5 Lakhs</b><br><br><a href="#book" class="btn b2" style="width:100%;text-align:center;display:block">Book Now</a></div>
-<div class="c"><span class="tag">NEW</span><h3>🔴 Mars - Olympus Stay</h3><p>7 Months • Rover drive • Red desert camping. Limited 20 seats.</p><b>₹85 Lakhs</b><br><br><a href="#book" class="btn b2" style="width:100%;text-align:center;display:block">Join Waitlist</a></div>
-<div class="c"><span class="tag">24 HOURS</span><h3>🛰️ ISS - Space Station</h3><p>24 Hours • Zero gravity • Live with astronauts. Certificate included.</p><b>₹42 Lakhs</b><br><br><a href="#book" class="btn b2" style="width:100%;text-align:center;display:block">Book Now</a></div>
+<div class="cards">
+<div class="c"><span class="tag">MOST POPULAR</span><h3>🌙 Moon - Lunar Base</h3><p>3 Days • Low gravity walk • Earth view dinner</p><b>₹12.5 Lakhs</b><br><br><a href="#moon" class="btn b2" style="width:100%;text-align:center;display:block">View Details</a></div>
+<div class="c"><span class="tag">NEW</span><h3>🔴 Mars - Olympus Stay</h3><p>7 Months • Rover drive • Red desert camping</p><b>₹85 Lakhs</b><br><br><a href="#mars" class="btn b2" style="width:100%;text-align:center;display:block">View Details</a></div>
+<div class="c"><span class="tag">24 HOURS</span><h3>🛰️ ISS - Space Station</h3><p>24 Hours • Zero gravity • Live with astronauts</p><b>₹42 Lakhs</b><br><br><a href="#iss" class="btn b2" style="width:100%;text-align:center;display:block">View Details</a></div>
 </div>
 
-<!-- BOOKING POPUP -->
+<!-- EXPLORE POPUP -->
+<div id="explore" class="popup">
+<div class="box">
+<a href="#" class="close">✕</a>
+<h2>Our <span style="color:#6c5cff">Destinations</span></h2>
+<div class="list">
+<p><b>🌙 Moon:</b> 3 Days, 2 Nights. Perfect for beginners.</p>
+<p><b>🔴 Mars:</b> 7 Months journey. For true explorers.</p>
+<p><b>🛰️ ISS:</b> 1 Day orbit. Live astronaut life.</p>
+<p><b>🪐 Saturn Ring:</b> Coming 2027 - Stay tuned!</p>
+</div>
+<a href="#book" class="go">Book Now</a>
+</div>
+</div>
+
+<!-- MOON PAGE -->
+<div id="moon" class="popup">
+<div class="box">
+<a href="#" class="close">✕</a>
+<h2>🌙 Moon - Lunar Base</h2>
+<p style="color:#888;font-size:14px">3 Days • Departure: Sriharikota</p>
+<div class="list">
+<p>✓ Low Gravity Walk</p><p>✓ Earth View Dinner</p><p>✓ Moon Rover Ride</p><p>✓ ISRO Certificate</p>
+</div>
+<b style="color:#6c5cff;font-size:24px">₹12.5 Lakhs</b>
+<a href="#book" class="go">Book Moon Trip</a>
+</div>
+</div>
+
+<!-- MARS PAGE -->
+<div id="mars" class="popup">
+<div class="box">
+<a href="#" class="close">✕</a>
+<h2>🔴 Mars - Olympus Stay</h2>
+<p style="color:#888;font-size:14px">7 Months • Limited 20 Seats</p>
+<div class="list">
+<p>✓ Olympus Mons Trek</p><p>✓ Red Desert Camping</p><p>✓ Mars Rover Driving</p><p>✓ 1 Year Training at Bangalore</p>
+</div>
+<b style="color:#6c5cff;font-size:24px">₹85 Lakhs</b>
+<a href="#book" class="go">Join Waitlist - Mars</a>
+</div>
+</div>
+
+<!-- ISS PAGE -->
+<div id="iss" class="popup">
+<div class="box">
+<a href="#" class="close">✕</a>
+<h2>🛰️ ISS - Space Station</h2>
+<p style="color:#888;font-size:14px">24 Hours • Zero Gravity Experience</p>
+<div class="list">
+<p>✓ Live with Real Astronauts</p><p>✓ Zero Gravity Float</p><p>✓ Space Food Tasting</p><p>✓ Earth Photography from ISS</p>
+</div>
+<b style="color:#6c5cff;font-size:24px">₹42 Lakhs</b>
+<a href="#book" class="go">Book ISS Trip</a>
+</div>
+</div>
+
+<!-- MAIN BOOKING -->
 <div id="book" class="popup">
 <div class="box">
 <a href="#" class="close">✕</a>
 <h2>Book Your <span style="color:#6c5cff">Orbit</span></h2>
-<p style="color:#888;font-size:14px;margin-bottom:18px">Ghaziabad → Space in 3 steps</p>
-<input placeholder="Full Name">
-<input placeholder="Email ID">
-<input placeholder="Phone Number">
+<p style="color:#888;font-size:14px;margin-bottom:10px">Ghaziabad → Space in 3 steps</p>
+<input placeholder="Full Name - e.g. Kanishka">
+<input placeholder="Email">
+<input placeholder="Phone">
 <input placeholder="Destination - Moon / Mars / ISS">
-<a href="#done" class="go">Confirm Booking - Pay ₹5,000 Advance</a>
-<p style="font-size:11px;color:#555;margin-top:12px">Refundable • ISRO Certified • Launch Insurance Included</p>
+<a href="#done" class="go">Confirm Booking - Pay ₹5,000</a>
 </div>
 </div>
 
 <div id="done" class="popup">
-<div class="box">
-<h2 style="font-size:48px">🎟️</h2>
+<div class="box" style="text-align:center">
+<h2 style="font-size:50px">🎟️</h2>
 <h2>You're Going to <span style="color:#6c5cff">Space!</span></h2>
-<p style="color:#888;margin:12px 0">Welcome aboard, Explorer. Ticket sent to your email. Training starts next month at Bangalore.</p>
-<b style="color:#6c5cff">Ticket ID: ORBIT-KAN-2026</b><br><br>
+<p style="color:#888;margin:12px 0">Ticket ID: ORBIT-KAN-2026 sent to email</p>
 <a href="#" class="go">Back to Earth</a>
 </div>
 </div>
 
 </body>
-</html>
+                 </html>
