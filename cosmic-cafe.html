@@ -19,12 +19,8 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 .btn1{background:linear-gradient(90deg,#a855f7,#ec4899); color:white; box-shadow:0 0 20px #a855f7aa;}
 .btn2{border:1px solid #333; color:white; transition:0.3s;}
 .btn2:hover{background:white; color:black;}
-.right{flex:1; min-width:300px; display:flex; justify-content:center; position:relative;}
-.card{
- width:320px; height:420px; background: rgba(255,255,255,0.06);
- backdrop-filter: blur(20px); border:1px solid rgba(255,255,255,0.1);
- border-radius:24px; padding:25px; animation: float 4s ease-in-out infinite;
-}
+.right{flex:1; min-width:300px; display:flex; justify-content:center;}
+.card{width:320px; height:420px; background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:25px; animation: float 4s ease-in-out infinite;}
 @keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)}}
 .circle{width:90px; height:90px; background: linear-gradient(135deg,#a855f7,#ec4899); border-radius:50%; margin-bottom:20px; box-shadow:0 0 30px #a855f7;}
 .card h3{font-size:22px; margin-bottom:10px;}
@@ -33,10 +29,8 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 .features{display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:60px; padding:0 8%;}
 .feat{background:#15151d; padding:20px; border-radius:16px; border:1px solid #222;}
 .feat h4{color:#a855f7; margin-bottom:8px;}
-
-/* MENU POPUP - View Menu click pe khulega */
-#view-menu{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; justify-content:center; align-items:center; z-index:100; padding:20px;}
-#view-menu:target{display:flex;}
+.popup{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; justify-content:center; align-items:center; z-index:100; padding:20px;}
+.popup:target{display:flex;}
 .menu-box{background:#15151d; border:1px solid #333; border-radius:24px; width:100%; max-width:700px; padding:30px; max-height:90vh; overflow-y:auto; position:relative;}
 .menu-box h2{font-size:32px; text-align:center; margin-bottom:20px;}
 .menu-box h2 span{color:#a855f7;}
@@ -48,13 +42,17 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 .item h4{margin-bottom:5px;}
 .item p{color:#888; font-size:13px;}
 .item b{color:#a855f7; font-size:18px; display:block; margin-top:8px;}
+.order-box{background:#15151d; border:1px solid #333; border-radius:24px; width:100%; max-width:450px; padding:30px; position:relative;}
+.order-box input, .order-box select{width:100%; padding:14px; margin:10px 0; border-radius:10px; border:1px solid #333; background:#1e1e2a; color:white; outline:none;}
+.order-box input:focus{border-color:#a855f7;}
+.order-btn{width:100%; padding:14px; margin-top:15px; border-radius:30px; border:none; background:linear-gradient(90deg,#a855f7,#ec4899); color:white; font-weight:bold; font-size:16px; cursor:pointer; display:block; text-align:center; text-decoration:none;}
 </style>
 </head>
 <body>
 
 <div class="navbar">
   <div class="logo">COSMIC<span>.CAFE</span></div>
-  <div class="menu"><a href="#">Home</a><a href="#view-menu">Menu</a><a href="#">Contact</a></div>
+  <div class="menu"><a href="#">Home</a><a href="#view-menu">Menu</a><a href="#order-now">Order</a></div>
 </div>
 
 <div class="hero">
@@ -62,7 +60,7 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
     <h1>Taste The <span>Universe</span> In Every Sip</h1>
     <p>Futuristic cafe with galaxy-infused coffee, made for creators, coders & dreamers like you.</p>
     <div class="btns">
-      <a href="#view-menu" class="btn1">Order Now</a>
+      <a href="#order-now" class="btn1">Order Now</a>
       <a href="#view-menu" class="btn2">View Menu</a>
     </div>
   </div>
@@ -72,7 +70,7 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
       <h3>Galaxy Latte</h3>
       <p>Blue spirulina + espresso + stardust foam. Our bestseller since 2025.</p>
       <div class="price">₹299</div>
-      <a href="#view-menu" class="btn1" style="width:100%; text-align:center; display:block; text-decoration:none;">Add to Cart</a>
+      <a href="#order-now" class="btn1" style="width:100%; text-align:center; display:block; text-decoration:none;">Add to Cart</a>
     </div>
   </div>
 </div>
@@ -82,22 +80,48 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
   <div class="feat"><h4>🌙 Open Till 2 AM</h4><p>Made for night coders like us</p></div>
 </div>
 
-<!-- VIEW MENU POPUP -->
-<div id="view-menu">
+<!-- VIEW MENU -->
+<div id="view-menu" class="popup">
   <div class="menu-box">
     <a href="#" class="close">✕</a>
     <h2>Our <span>Cosmic</span> Menu</h2>
-    <p style="text-align:center; color:#888; margin-bottom:10px;">Click ✕ to close</p>
     <div class="grid">
-      <div class="item"><h4>🌌 Galaxy Latte</h4><p>Blue spirulina + espresso + shimmer foam</p><b>₹299</b></div>
-      <div class="item"><h4>🪐 Nebula Mocha</h4><p>Dark chocolate + cosmic dust + cream</p><b>₹349</b></div>
-      <div class="item"><h4>☄️ Meteor Frappe</h4><p>Cold brew + vanilla + meteor crunch</p><b>₹279</b></div>
-      <div class="item"><h4>🌙 Lunar Cappuccino</h4><p>Oat milk + cinnamon + moon glow</p><b>₹249</b></div>
+      <div class="item"><h4>🌌 Galaxy Latte</h4><p>Blue spirulina + espresso</p><b>₹299</b></div>
+      <div class="item"><h4>🪐 Nebula Mocha</h4><p>Dark chocolate + cosmic dust</p><b>₹349</b></div>
+      <div class="item"><h4>☄️ Meteor Frappe</h4><p>Cold brew + vanilla crunch</p><b>₹279</b></div>
+      <div class="item"><h4>🌙 Lunar Cappuccino</h4><p>Oat milk + cinnamon</p><b>₹249</b></div>
       <div class="item"><h4>⭐ Stardust Espresso</h4><p>Pure strong shot with glitter</p><b>₹199</b></div>
-      <div class="item"><h4>🌠 Comet Cold Brew</h4><p>24hr brewed + icy comet</p><b>₹269</b></div>
+      <div class="item"><h4>🌠 Comet Cold Brew</h4><p>24hr brewed + icy</p><b>₹269</b></div>
     </div>
   </div>
 </div>
 
+<!-- ORDER NOW -->
+<div id="order-now" class="popup">
+  <div class="order-box">
+    <a href="#" class="close">✕</a>
+    <h2>Order <span style="color:#a855f7;">Now</span></h2>
+    <p style="color:#888; text-align:center; margin:10px 0 20px; font-size:14px;">Galaxy Latte will be delivered in 20 mins 🚀</p>
+    <input type="text" placeholder="Your Name - e.g. Kanishka">
+    <input type="text" placeholder="Address - e.g. Ghaziabad">
+    <input type="number" placeholder="Mobile Number">
+    <select><option>Select Drink</option><option>🌌 Galaxy Latte - ₹299</option><option>🪐 Nebula Mocha - ₹349</option><option>☄️ Meteor Frappe - ₹279</option><option>🌙 Lunar Cappuccino - ₹249</option></select>
+    <select><option>Quantity</option><option>1 Cup</option><option>2 Cups</option><option>3 Cups</option></select>
+    <a href="#thanks" class="order-btn">Confirm Order - ₹299</a>
+    <p style="text-align:center; color:#666; font-size:12px; margin-top:12px;">Cash on Delivery • Open till 2 AM</p>
+  </div>
+</div>
+
+<!-- THANK YOU -->
+<div id="thanks" class="popup">
+  <div class="order-box" style="text-align:center;">
+    <h2 style="font-size:50px;">🎉</h2>
+    <h2>Order <span style="color:#a855f7;">Confirmed!</span></h2>
+    <p style="color:#888; margin:15px 0;">Thanks! Your order will be delivered in 20 mins in Ghaziabad 🚀</p>
+    <p style="color:#a855f7; font-weight:bold;">Order ID: #COSMIC-2026-06992</p>
+    <a href="#" class="order-btn" style="margin-top:20px;">Back to Home</a>
+  </div>
+</div>
+
 </body>
-</html>
+   </html>
