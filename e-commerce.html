@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gadget Galaxy - Ecommerce</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#f5f5f7;color:#111}
+nav{display:flex;justify-content:space-between;padding:18px 8%;background:white;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px #0000000d}
+.logo{font-weight:900;font-size:20px} .logo span{color:#6c5cff}
+nav a{text-decoration:none;color:#111;margin-left:20px;font-weight:600;font-size:14px}
+.hero{padding:50px 8%;display:flex;flex-wrap:wrap;gap:30px;align-items:center;background:linear-gradient(135deg,#6c5cff,#a78bfa);color:white;border-radius:0 0 30px 30px}
+.hero h1{font-size:50px;line-height:1} .btn{padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;display:inline-block;background:white;color:#6c5cff}
+.products{padding:40px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.p{background:white;border-radius:18px;padding:18px;box-shadow:0 5px 20px #00000008;transition:0.3s}
+.p:hover{transform:translateY(-5px)}
+.p-img{height:160px;background:#f5f5f7;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:60px}
+.price{font-weight:900;font-size:20px;margin:8px 0}
+.add{width:100%;padding:12px;background:#111;color:white;border-radius:30px;font-weight:700;display:block;text-align:center;text-decoration:none;margin-top:10px}
+.add:hover{background:#6c5cff}
+
+/* POPUP SYSTEM */
+.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);display:none;justify-content:center;align-items:center;z-index:100;padding:20px}
+.popup:target{display:flex}
+.box{background:white;border-radius:24px;max-width:500px;width:100%;padding:28px;position:relative;max-height:92vh;overflow-y:auto}
+.close{position:absolute;top:12px;right:18px;text-decoration:none;font-size:26px;color:#888}
+.big-img{height:180px;background:#f5f5f7;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:90px;margin:10px 0}
+.feat{text-align:left;margin:15px 0} .feat p{margin:6px 0;color:#555;font-size:14px}
+.pay{width:100%;padding:14px;background:#111;color:white;border:none;border-radius:30px;font-weight:800;display:block;text-align:center;text-decoration:none;margin-top:12px}
+.pay2{background:linear-gradient(90deg,#6c5cff,#a78bfa)}
+input{width:100%;padding:13px;margin:7px 0;border-radius:10px;border:1px solid #ddd;outline:none}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">GADGET<span>GALAXY</span></div>
+<div><a href="#products">Shop</a><a href="#maincart">🛒 Cart</a></div>
+</nav>
+
+<div class="hero">
+<div style="flex:1;min-width:280px"><h1>Tech Future Starts Here</h1><p>Free delivery in Ghaziabad + COD</p><a href="#products" class="btn">Shop Now →</a></div>
+<div style="flex:1;text-align:center;font-size:100px">🎧⌚️🎮</div>
+</div>
+
+<div class="products" id="products">
+<div class="p"><div class="p-img">🎧</div><h4>Galaxy Buds Pro</h4><p class="price">₹2,999</p><a href="#buds" class="add">View Details</a></div>
+<div class="p"><div class="p-img">⌚</div><h4>Orbit Smart Watch</h4><p class="price">₹3,499</p><a href="#watch" class="add">View Details</a></div>
+<div class="p"><div class="p-img">🎮</div><h4>Cosmic Gamepad</h4><p class="price">₹1,999</p><a href="#game" class="add">View Details</a></div>
+<div class="p"><div class="p-img">🔋</div><h4>Nebula Powerbank</h4><p class="price">₹1,299</p><a href="#power" class="add">View Details</a></div>
+<div class="p"><div class="p-img">⌨️</div><h4>Mecha Keyboard</h4><p class="price">₹2,499</p><a href="#key" class="add">View Details</a></div>
+<div class="p"><div class="p-img">📱</div><h4>Phone Stand</h4><p class="price">₹499</p><a href="#stand" class="add">View Details</a></div>
+</div>
+
+<!-- HAR PRODUCT KA ALAG PAGE -->
+
+<div id="buds" class="popup">
+<div class="box"><a href="#" class="close">✕</a><div class="big-img">🎧</div><h2>Galaxy Buds Pro</h2><p style="color:#888">Noise Cancelling • 30hr Battery</p><div class="feat"><p>✓ Active Noise Cancellation</p><p>✓ 30 Hours Total Playback</p><p>✓ IPX5 Water Resistant</p><p>✓ 1 Year Warranty</p></div><b style="font-size:22px;color:#6c5cff">₹2,999</b><a href="#cart-buds" class="pay">Add to Cart - ₹2,999</a></div>
+</div>
+
+<div id="watch" class="popup">
+<div class="box"><a href="#" class="close">✕</a><div class="big-img">⌚</div><h2>Orbit Smart Watch</h2><p style="color:#888">AMOLED • Heart Rate • IP68</p><div class="feat"><p>✓ 1.8 inch AMOLED Display</p><p>✓ Heart Rate + SpO2 Monitor</p><p>✓ 7 Days Battery</p><p>✓ 100+ Sports Modes</p></div><b style="font-size:22px;color:#6c5cff">₹3,499</b><a href="#cart-watch" class="pay">Add to Cart - ₹3,499</a></div>
+</div>
+
+<div id="game" class="popup">
+<div class="box"><a href="#" class="close">✕</a><div class="big-img">🎮</div><h2>Cosmic Gamepad</h2><p style="color:#888">Wireless • RGB • 20hr</p><div class="feat"><p>✓ Bluetooth 5.0 Wireless</p><p>✓ RGB Lighting</p><p>✓ For PC + Mobile + PS</p></div><b style="font-size:22px;color:#6c5cff">₹1,999</b><a href="#cart-game" class="pay">Add to Cart - ₹1,999</a></div>
+</div>
+
+<div id="power" class="popup">
+<div class="box"><a href="#" class="close">✕</a><div class="big-img">🔋</div><h2>Nebula Powerbank 20000mAh</h2><div class="feat"><p>✓ 22.5W Fast Charge</p><p>✓ 3 Devices at Once</p><p>✓ Type-C Input/Output</p></div><b style="font-size:22px;color:#6c5cff">₹1,299</b><a href="#cart-power" class="pay">Add to Cart - ₹1,299</a></div>
+</div>
+
+<div id="key" class="popup">
+<div class="box"><a href="#" class="close">✕</a><div class="big-img">⌨️</div><h2>Mecha Keyboard</h2><div class="feat"><p>✓ Mechanical Blue Switch</p><p>✓ RGB Backlit</p><p>✓ Gaming Grade</p></div><b style="font-size:22px;color:#6c5cff">₹2,499</b><a href="#cart-key" class="pay">Add to Cart - ₹2,499</a></div>
+</div>
+
+<div id="stand" class="popup">
+<div class="box"><a href="#" class="close">✕</a><div class="big-img">📱</div><h2>Adjustable Phone Stand</h2><div class="feat"><p>✓ 360° Rotation</p><p>✓ Foldable & Portable</p></div><b style="font-size:22px;color:#6c5cff">₹499</b><a href="#cart-stand" class="pay">Add to Cart - ₹499</a></div>
+</div>
+
+<!-- ALAG ALAG CARTS -->
+
+<div id="cart-buds" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Cart - Buds Added</h2><p>🎧 Galaxy Buds Pro x 1 = ₹2,999</p><a href="#checkout-buds" class="pay pay2">Checkout - ₹2,999</a></div></div>
+<div id="cart-watch" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Cart - Watch Added</h2><p>⌚ Smart Watch x 1 = ₹3,499</p><a href="#checkout-watch" class="pay pay2">Checkout - ₹3,499</a></div></div>
+<div id="cart-game" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Cart</h2><p>🎮 Gamepad = ₹1,999</p><a href="#checkout-game" class="pay pay2">Checkout</a></div></div>
+<div id="cart-power" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Cart</h2><p>🔋 Powerbank = ₹1,299</p><a href="#checkout-power" class="pay pay2">Checkout</a></div></div>
+<div id="cart-key" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Cart</h2><p>⌨️ Keyboard = ₹2,499</p><a href="#checkout-key" class="pay pay2">Checkout</a></div></div>
+<div id="cart-stand" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Cart</h2><p>📱 Stand = ₹499</p><a href="#checkout-stand" class="pay pay2">Checkout</a></div></div>
+
+<!-- ALAG ALAG CHECKOUT -->
+
+<div id="checkout-buds" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>Checkout - Buds</h2><input placeholder="Name"><input placeholder="Address"><input placeholder="Mobile"><a href="#done-buds" class="pay pay2">Pay ₹2,999 - COD</a></div></div>
+<div id="checkout-watch" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>Checkout - Watch</h2><input placeholder="Name"><input placeholder="Address"><input placeholder="Mobile"><a href="#done-watch" class="pay pay2">Pay ₹3,499 - COD</a></div></div>
+<div id="maincart" class="popup"><div class="box"><a href="#" class="close">✕</a><h2>🛒 Full Cart (2 items)</h2><p>🎧 Buds - ₹2,999<br>⌚ Watch - ₹3,499</p><b>Total ₹6,498</b><a href="#checkout-buds" class="pay pay2">Checkout All</a></div></div>
+
+<!-- SUCCESS PAGES -->
+
+<div id="done-buds" class="popup"><div class="box" style="text-align:center"><h2 style="font-size:50px">✅</h2><h2>Order Confirmed!</h2><p>Galaxy Buds Pro will be delivered in 24hrs</p><b style="color:#6c5cff">#GG-BUDS-2026</b><br><br><a href="#" class="pay">Continue Shopping</a></div></div>
+<div id="done-watch" class="popup"><div class="box" style="text-align:center"><h2 style="font-size:50px">✅</h2><h2>Order Confirmed!</h2><p>Smart Watch will be delivered in 24hrs</p><b style="color:#6c5cff">#GG-WATCH-2026</b><br><br><a href="#" class="pay">Continue Shopping</a></div></div>
+
+</body>
+</html>
