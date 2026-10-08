@@ -18,6 +18,9 @@ https://kanishka06992.github.io/Index6/e-commerce.html
 
 **Cosmic Cafe - Neon Website:** https://Kanishka06992.github.io/Index6/cosmic-cafe.html
 
+**Gadget Galaxy:**
+https://kanishka06992.github.io/Index6/gadget_galaxy.html
+
 ## ✨ Features
 - Responsive Design (Mobile + Desktop)
 - About Me, Skills, Projects Section
