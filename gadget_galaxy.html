@@ -1,81 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GadgetGalaxy</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GadgetGalaxy - Final</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f2f2f7;color:#111}
-header{background:#fff;margin:10px;border-radius:15px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.logo{font-weight:900;font-size:22px;display:flex;align-items:center;gap:6px}
-.logo i{font-style:normal;color:#6d28d9}
-.icons{font-size:22px;word-spacing:18px;color:#555}
-.banner{background:linear-gradient(135deg,#3b1f8f,#6d28d9);color:#fff;margin:0 10px;border-radius:18px;padding:22px;position:relative;overflow:hidden}
-.banner h1{font-size:28px;font-weight:900;line-height:1.1}
-.banner p{font-size:12px;opacity:.85;margin-top:6px}
-.top{display:flex;justify-content:space-between;align-items:center;padding:18px 14px 8px 14px}
-.top h2{font-size:20px;font-weight:800}
-.top a{color:#6d28d9;text-decoration:none;font-size:13px;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:10px}
-.card{background:#fff;border-radius:16px;padding:14px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-.circle{width:70px;height:70px;background:#5b21ff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 8px auto;color:#fff}
-.card h4{font-size:12px;margin:4px 0 2px}.card b{color:#5b21ff;font-size:13px}
-.card a button{background:#5b21ff;color:#fff;border:none;padding:6px 12px;border-radius:6px;margin-top:8px;font-size:11px;cursor:pointer}
-.bottom{position:sticky;bottom:10px;margin:10px;background:#fff;border-radius:20px;display:flex;justify-content:space-around;padding:12px 0;box-shadow:0 -2px 15px rgba(0,0,0,.08)}
-.bottom div{text-align:center;font-size:11px;color:#777}
-.bottom .active{color:#5b21ff}
-.page{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:99;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
-.page:target{display:flex}
-.big{font-size:70px;background:#f5f3ff;width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.back{margin-top:20px;background:#5b21ff;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-size:13px}
-@media(max-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}.banner h1{font-size:22px}}
+body{background:#f2f2f7;overflow-x:hidden}
+header{background:#fff;margin:12px;border-radius:18px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 15px rgba(0,0,0,.06);animation:down .6s ease}
+.logo{font-weight:900;font-size:21px;display:flex;gap:6px} .logo span{color:#5b21ff}
+.banner{background:linear-gradient(135deg,#2c0f7a,#6d28d9,#a855f7);color:#fff;margin:0 12px;border-radius:20px;padding:24px;position:relative;overflow:hidden;animation:pop .7s ease}
+.banner::after{content:'';position:absolute;width:200px;height:200px;background:rgba(255,255,255,.15);border-radius:50%;top:-50px;right:-50px;animation:float 3s infinite ease-in-out}
+.banner h1{font-size:26px;font-weight:900;line-height:1.1;position:relative;z-index:1}
+.banner p{font-size:11px;opacity:.9;margin-top:6px;z-index:1;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 14px 6px}
+.top h2{font-size:18px;font-weight:800} .top a{color:#5b21ff;text-decoration:none;font-weight:800;font-size:13px;transition:.3s}
+.top a:hover{transform:translateX(4px)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px;animation:up .8s ease}
+.card{background:#fff;border-radius:18px;padding:14px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.06);transition:.35s;animation:pop .5s ease backwards}
+.card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 10px 25px rgba(91,33,255,.2)}
+.card:nth-child(1){animation-delay:.1s}.card:nth-child(2){animation-delay:.15s}.card:nth-child(3){animation-delay:.2s}.card:nth-child(4){animation-delay:.25s}.card:nth-child(5){animation-delay:.3s}.card:nth-child(6){animation-delay:.35s}
+.circle{width:64px;height:64px;background:linear-gradient(135deg,#5b21ff,#8b5cf6);border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;transition:.3s}
+.card:hover .circle{transform:rotate(10deg) scale(1.1)}
+.card h4{font-size:11px;margin-top:4px} .card b{color:#5b21ff;font-size:12px}
+.btn{background:#5b21ff;color:#fff;border:none;padding:6px 14px;border-radius:20px;margin-top:8px;font-size:10px;cursor:pointer;transition:.3s;display:inline-block;text-decoration:none}
+.btn:hover{background:#000;transform:scale(1.05)}
+.bottom{position:fixed;bottom:12px;left:12px;right:12px;background:#fff;border-radius:24px;display:flex;justify-content:space-around;padding:14px 0;box-shadow:0 -4px 20px rgba(0,0,0,.1);z-index:50}
+.bottom a{color:#888;text-decoration:none;font-size:11px;text-align:center;transition:.3s}
+.bottom a:hover,.bottom a.active{color:#5b21ff;transform:translateY(-3px)}
+
+/* ALAG PAGES + ANIMATION */
+.page{position:fixed;inset:0;background:#fff;z-index:100;display:none;flex-direction:column;align-items:center;justify-content:flex-start;overflow:auto;padding:24px 18px 30px}
+.page:target{display:flex;animation:pageIn .45s cubic-bezier(.2,.8,.2,1)}
+.big{width:130px;height:130px;background:linear-gradient(135deg,#f5f3ff,#e9e5ff);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:68px;margin:30px auto 14px;animation:pop .6s ease .2s backwards}
+.page h2{font-size:24px;font-weight:900} .page b{color:#5b21ff;font-size:20px;margin-top:6px}
+.page p{color:#666;font-size:13px;margin-top:8px;max-width:280px;text-align:center;line-height:1.4}
+.back{margin-top:22px;background:linear-gradient(135deg,#5b21ff,#8b5cf6);color:#fff;padding:12px 28px;border-radius:24px;text-decoration:none;font-weight:bold;font-size:13px;transition:.3s;box-shadow:0 6px 15px rgba(91,33,255,.3)}
+.back:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(91,33,255,.4)}
+.see-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:340px;margin-top:18px}
+.see-card{background:#fff;border:1px solid #eee;border-radius:16px;padding:10px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes down{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes pageIn{from{opacity:0;transform:translateY(100%) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:500px){.grid{grid-template-columns:1fr 1fr}}
-</style>
-</head>
+</style></head>
 <body>
 
-<header><div class="logo">🪐 Gadget<i>Galaxy</i></div><div class="icons">🔍 ♡ 🛒</div></header>
-
-<div class="banner"><h1>Tech Future<br>Starts Here</h1><p>Discover the latest gadgets & tech - deals inside</p></div>
-
-<div class="top"><h2>Top Products</h2><a href="#">See All →</a></div>
+<header><div class="logo">🪐 Gadget<span>Galaxy</span></div><div>🔍 ♡ 🛒</div></header>
+<div class="banner"><h1>Tech Future<br>Starts Here</h1><p>Discover the latest gadgets & tech — deals inside</p></div>
+<div class="top"><h2>Top Products</h2><a href="#seeall">See All →</a></div>
 
 <div class="grid">
-<div class="card"><div class="circle">🎧</div><h4>Wireless Earbuds</h4><b>$29.99</b><br><a href="#p1"><button>View Details</button></a></div>
-<div class="card"><div class="circle">⌚</div><h4>Smartwatch</h4><b>$59.99</b><br><a href="#p2"><button>View Details</button></a></div>
-<div class="card"><div class="circle">🔋</div><h4>Portable Charger</h4><b>$19.99</b><br><a href="#p3"><button>View Details</button></a></div>
-
-<div class="card"><div class="circle">🔊</div><h4>Bluetooth Speaker</h4><b>$24.99</b><br><a href="#p4"><button>View Details</button></a></div>
-<div class="card"><div class="circle">🎧</div><h4>Gaming Headset</h4><b>$39.99</b><br><a href="#p5"><button>View Details</button></a></div>
-<div class="card"><div class="circle">🌡️</div><h4>Smart Thermostat</h4><b>$49.99</b><br><a href="#p6"><button>View Details</button></a></div>
-
-<div class="card"><div class="circle">🚁</div><h4>Mini Drone</h4><b>$79.99</b><br><a href="#p7"><button>View Details</button></a></div>
-<div class="card"><div class="circle">💡</div><h4>LED Desk Lamp</h4><b>$14.99</b><br><a href="#p8"><button>View Details</button></a></div>
-<div class="card"><div class="circle">🔌</div><h4>USB-C Hub</h4><b>$12.99</b><br><a href="#p9"><button>View Details</button></a></div>
-
-<div class="card"><div class="circle">📷</div><h4>Action Camera</h4><b>$45.99</b><br><a href="#p10"><button>View Details</button></a></div>
-<div class="card"><div class="circle">⚖️</div><h4>Smart Scale</h4><b>$22.99</b><br><a href="#p11"><button>View Details</button></a></div>
-<div class="card"><div class="circle">🔋</div><h4>Wireless Charging Pad</h4><b>$17.99</b><br><a href="#p12"><button>View Details</button></a></div>
+<div class="card"><div class="circle">🎧</div><h4>Wireless Earbuds</h4><b>$29.99</b><br><a class="btn" href="#p1">View Details</a></div>
+<div class="card"><div class="circle">⌚</div><h4>Smartwatch</h4><b>$59.99</b><br><a class="btn" href="#p2">View Details</a></div>
+<div class="card"><div class="circle">🔋</div><h4>Portable Charger</h4><b>$19.99</b><br><a class="btn" href="#p3">View Details</a></div>
+<div class="card"><div class="circle">🔊</div><h4>Bluetooth Speaker</h4><b>$24.99</b><br><a class="btn" href="#p4">View Details</a></div>
+<div class="card"><div class="circle">🎮</div><h4>Gaming Headset</h4><b>$39.99</b><br><a class="btn" href="#p5">View Details</a></div>
+<div class="card"><div class="circle">🌡️</div><h4>Smart Thermostat</h4><b>$49.99</b><br><a class="btn" href="#p6">View Details</a></div>
+<div class="card"><div class="circle">🚁</div><h4>Mini Drone</h4><b>$79.99</b><br><a class="btn" href="#p7">View Details</a></div>
+<div class="card"><div class="circle">💡</div><h4>LED Desk Lamp</h4><b>$14.99</b><br><a class="btn" href="#p8">View Details</a></div>
+<div class="card"><div class="circle">🔌</div><h4>USB-C Hub</h4><b>$12.99</b><br><a class="btn" href="#p9">View Details</a></div>
+<div class="card"><div class="circle">📷</div><h4>Action Camera</h4><b>$45.99</b><br><a class="btn" href="#p10">View Details</a></div>
+<div class="card"><div class="circle">⚖️</div><h4>Smart Scale</h4><b>$22.99</b><br><a class="btn" href="#p11">View Details</a></div>
+<div class="card"><div class="circle">📱</div><h4>Wireless Charging Pad</h4><b>$17.99</b><br><a class="btn" href="#p12">View Details</a></div>
 </div>
 
-<div class="bottom"><div class="active">🏠<br>Home</div><div>🖥️<br>Explore</div><div>📂<br>Categories</div><div>🎁<br>Deals</div><div>👤<br>Profile</div></div>
+<div style="height:90px"></div>
+<div class="bottom">
+<a href="#" class="active">🏠<br>Home</a>
+<a href="#explore">🔍<br>Explore</a>
+<a href="#categories">📂<br>Categories</a>
+<a href="#deals">🎁<br>Deals</a>
+<a href="#profile">👤<br>Profile</a>
+</div>
 
-<!-- 12 ALAG PAGES -->
-<div id="p1" class="page"><div class="big">🎧</div><h2>Wireless Earbuds</h2><b style="color:#5b21ff">$29.99</b><p style="color:#666;font-size:13px;margin-top:6px">Noise-cancelling, 24h battery</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p2" class="page"><div class="big">⌚</div><h2>Smartwatch</h2><b style="color:#5b21ff">$59.99</b><p style="color:#666;font-size:13px">Health tracking, 5-day battery</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p3" class="page"><div class="big">🔋</div><h2>Portable Charger</h2><b style="color:#5b21ff">$19.99</b><p>10000mAh Fast Charge</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p4" class="page"><div class="big">🔊</div><h2>Bluetooth Speaker</h2><b style="color:#5b21ff">$24.99</b><p>Deep bass, 12hr playtime</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p5" class="page"><div class="big">🎧</div><h2>Gaming Headset</h2><b style="color:#5b21ff">$39.99</b><p>RGB, Mic, Comfort fit</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p6" class="page"><div class="big">🌡️</div><h2>Smart Thermostat</h2><b style="color:#5b21ff">$49.99</b><p>WiFi, App control</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p7" class="page"><div class="big">🚁</div><h2>Mini Drone</h2><b style="color:#5b21ff">$79.99</b><p>HD Camera, 15min flight</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p8" class="page"><div class="big">💡</div><h2>LED Desk Lamp</h2><b style="color:#5b21ff">$14.99</b><p>Touch control, 3 colors</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p9" class="page"><div class="big">🔌</div><h2>USB-C Hub</h2><b style="color:#5b21ff">$12.99</b><p>4 Ports, 5Gbps</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p10" class="page"><div class="big">📷</div><h2>Action Camera</h2><b style="color:#5b21ff">$45.99</b><p>4K, Waterproof</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p11" class="page"><div class="big">⚖️</div><h2>Smart Scale</h2><b style="color:#5b21ff">$22.99</b><p>Body fat, App sync</p><a class="back" href="#">← Back to Home</a></div>
-<div id="p12" class="page"><div class="big">🔋</div><h2>Wireless Charging Pad</h2><b style="color:#5b21ff">$17.99</b><p>Fast charge, Qi compatible</p><a class="back" href="#">← Back to Home</a></div>
+<!-- SEE ALL PAGE -->
+<div id="seeall" class="page"><div class="all-head" style="text-align:center"><h2>All Products</h2><p style="margin-top:6px">Here are all 12 trending gadgets — Best price & fast delivery</p></div>
+<div class="see-grid">
+<div class="see-card">🎧<br><small>Wireless Earbuds<br><b>$29.99</b></small></div>
+<div class="see-card">⌚<br><small>Smartwatch<br><b>$59.99</b></small></div>
+<div class="see-card">🔋<br><small>Portable Charger<br><b>$19.99</b></small></div>
+<div class="see-card">🔊<br><small>Bluetooth Speaker<br><b>$24.99</b></small></div>
+<div class="see-card">🎮<br><small>Gaming Headset<br><b>$39.99</b></small></div>
+<div class="see-card">🌡️<br><small>Smart Thermostat<br><b>$49.99</b></small></div>
+</div><a class="back" href="#">← Back to Home</a></div>
 
-</body>
-                    </html>
+<!-- BOTTOM NAV PAGES -->
+<div id="explore" class="page"><div class="big">🔍</div><h2>Explore</h2><p>Discover trending gadgets, new arrivals and editor's picks curated just for you.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="categories" class="page"><div class="big">📂</div><h2>Categories</h2><p>Audio • Wearables • Gaming • Chargers • Smart Home • Drones</p><a class="back" href="#">← Back to Home</a></div>
+<div id="deals" class="page"><div class="big">🎁</div><h2>Deals</h2><p>🔥 50% Off Today Only! Grab your favorite gadgets before stock ends.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="profile" class="page"><div class="big">👤</div><h2>Profile</h2><p>Welcome to Gadget Galaxy. Track orders, wishlist & settings here.</p><a class="back" href="#">← Back to Home</a></div>
 
-  
+<!-- 12 PRODUCT PAGES -->
+<div id="p1" class="page"><div class="big">🎧</div><h2>Wireless Earbuds</h2><b>$29.99</b><p>True wireless, 24h battery, BT 5.3, Water resistant, HD mic with charging case.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p2" class="page"><div class="big">⌚</div><h2>Smartwatch</h2><b>$59.99</b><p>Fitness tracking, Heart rate, 1.4" display, 7-day battery, 5ATM water resistant.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p3" class="page"><div class="big">🔋</div><h2>Portable Charger</h2><b>$19.99</b><p>10000mAh, Fast Charge, USB-C, Compact design for travel.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p4" class="page"><div class="big">🔊</div><h2>Bluetooth Speaker</h2><b>$24.99</b><p>Deep bass, 12hr playtime, IPX5 waterproof, Portable.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p5" class="page"><div class="big">🎮</div><h2>Gaming Headset</h2><b>$39.99</b><p>RGB lights, Noise cancelling mic, Comfortable fit for long gaming.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p6" class="page"><div class="big">🌡️</div><h2>Smart Thermostat</h2><b>$49.99</b><p>WiFi control, Energy saving, App control from anywhere.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p7" class="page"><div class="big">🚁</div><h2>Mini Drone</h2><b>$79.99</b><p>HD camera, 15min flight, One-key takeoff, Altitude hold.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p8" class="page"><div class="big">💡</div><h2>LED Desk Lamp</h2><b>$14.99</b><p>Touch control, 3 color modes, USB charging port.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p9" class="page"><div class="big">🔌</div><h2>USB-C Hub</h2><b>$12.99</b><p>4-in-1 ports, 5Gbps transfer, Plug & play.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p10" class="page"><div class="big">📷</div><h2>Action Camera</h2><b>$45.99</b><p>4K video, Waterproof, WiFi, Wide angle, Rugged design.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p11" class="page"><div class="big">⚖️</div><h2>Smart Scale</h2><b>$22.99</b><p>Body fat analysis, BMI, App sync, High precision.</p><a class="back" href="#">← Back to Home</a></div>
+<div id="p12" class="page"><div class="big">📱</div><h2>Wireless Charging Pad</h2><b>$17.99</b><p>Fast charge, Qi compatible, LED indicator, Anti-slip.</p><a class="back" href="#">← Back to Home</a></div>
+
+</body></html>
