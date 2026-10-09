@@ -29,7 +29,7 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 .features{display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:60px; padding:0 8%;}
 .feat{background:#15151d; padding:20px; border-radius:16px; border:1px solid #222;}
 .feat h4{color:#a855f7; margin-bottom:3px;}
-.popup{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; justify-content:center; align-items:center; z-index:999;}
+.popup{position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; justify-content:center; align-items:center; z-index:999; padding:15px;}
 .popup:target{display:flex;}
 .menu-box{background:#15151d; border:1px solid #333; border-radius:24px; width:100%; max-width:700px; padding:30px; max-height:90vh; overflow:auto; position:relative;}
 .menu-box h2{font-size:32px; text-align:center; margin-bottom:20px;}
@@ -45,38 +45,31 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 .order-box{background:#15151d; border:1px solid #333; border-radius:24px; width:100%; max-width:450px; padding:30px; position:relative;}
 .order-box input, .order-box select{width:100%; padding:14px; margin:10px 0; border-radius:10px; border:1px solid #333; background:#0f0f15; color:white; outline:none;}
 .order-box input:focus, .order-box select:focus{border-color:#a855f7;}
-.order-btn{width:100%; padding:14px; margin-top:15px; border-radius:30px; border:none; background:linear-gradient(90deg,#a855f7,#ec4899); color:white; font-weight:bold; cursor:pointer; text-align:center; display:block; text-decoration:none;}
+.order-btn{width:100%; padding:14px; margin-top:15px; border-radius:30px; border:none; background:linear-gradient(90deg,#a855f7,#ec4899); color:white; font-weight:bold; cursor:pointer; text-align:center; display:block; text-decoration:none; transition:0.3s;}
 
-/* --- FINAL FIX - Bina JS ke --- */
+/* --- FINAL LOGIC: Khali pe click karne par Invalid aayega --- */
 .order-box:invalid .order-btn{
-  opacity:0.5;
-  pointer-events:none;
+  opacity:0.6;
 }
 .order-box:valid .order-btn{
   opacity:1;
-  pointer-events:auto;
+  box-shadow:0 0 15px #a855f7aa;
 }
 .error-msg{
   display:none;
   color:#ff4d6d;
   font-size:13px;
   text-align:center;
-  margin-top:8px;
+  margin-top:10px;
+  font-weight:bold;
+  background:rgba(255,77,109,0.1);
+  padding:8px;
+  border-radius:8px;
+  border:1px solid rgba(255,77,109,0.3);
 }
-/* Error tabhi dikhega jab user field ko touch karke galat chhode */
+/* Confirm dabate hi agar form khali hai to error dikhega */
 .order-box:has(input:user-invalid) .error-msg,
 .order-box:has(select:user-invalid) .error-msg{
-  display:block;
-}
-/* Purane phone ke liye backup */
-.order-box:focus-within:invalid .error-msg{
-  display:block;
-}
-.order-box:not(:focus-within) .error-msg{
-  display:none;
-}
-.order-box:has(input:user-invalid):not(:focus-within) .error-msg,
-.order-box:has(select:user-invalid):not(:focus-within) .error-msg{
   display:block;
 }
 </style>
@@ -128,7 +121,6 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
  </div>
 </div>
 
-<!-- ORDER NOW -->
 <div id="order-now" class="popup">
  <form class="order-box" action="#thanks">
   <a href="#" class="close">x</a>
@@ -137,12 +129,13 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
 
   <input type="text" placeholder="Enter Your Name" required>
   <input type="text" placeholder="Address" required>
-  <input type="tel" placeholder="Enter Your Mobile Number" pattern="[6-9][0-9]{9}" title="10 digit number dalo" required>
+  <input type="tel" placeholder="Enter Your Mobile Number" pattern="[6-9][0-9]{9}" title="Sahi 10 digit number dalo" required>
 
   <select required>
     <option value="">Select Drink</option>
     <option>Galaxy Latte - ₹299</option>
     <option>Nebula Mocha - ₹349</option>
+    <option>Meteor Frappes - ₹279</option>
   </select>
 
   <select required>
@@ -165,7 +158,7 @@ body{background:#0a0a0f; color:white; overflow-x:hidden;}
   <h2>Order <span style="color:#a855f7;">Confirmed!</span></h2>
   <p style="color:#888; margin:15px 0;">Thanks! Your order will be delivered in 20 mins in Ghaziabad 🚀</p>
   <p style="color:#a855f7; font-weight:bold;">Order ID: #COSMIC-2026-06992</p>
-  <a href="#" class="order-btn" style="margin-top:20px;">Back to Home</a>
+  <a href="#" class="order-btn" style="margin-top:20px; opacity:1;">Back to Home</a>
  </div>
 </div>
 
