@@ -2,96 +2,126 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COSMIC.CAFE - With Images</title>
+<title>COSMIC.CAFE - New Page on Cart</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#0a0a0f;color:#fff;overflow-x:hidden}
-.navbar{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;padding:18px 8%;background:rgba(10,10,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid #222}
+body{background:#0a0a0f;color:#fff}
+.navbar{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;padding:18px 8%;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid #222}
 .logo{font-weight:900;font-size:26px}.logo span{color:#a855f7}
-.nav a{color:#aaa;text-decoration:none;margin-left:20px}
-.cart-btn{background:linear-gradient(90deg,#a855f7,#ec4899);padding:10px 20px;border-radius:30px;border:none;color:#fff;font-weight:bold;cursor:pointer}
-.hero{display:flex;flex-wrap:wrap;padding:120px 8% 60px;gap:40px;align-items:center}
-.left{flex:1;min-width:300px}.left h1{font-size:60px;line-height:1}.left h1 span{background:linear-gradient(90deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.btn{padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:bold;display:inline-block;border:none;cursor:pointer}
-.btn-p{background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;box-shadow:0 0 20px #a855f7aa}
+.page{display:none;min-height:100vh;padding:110px 8% 60px}.page.active{display:block}
+.btn{padding:13px 28px;border-radius:30px;font-weight:bold;cursor:pointer;border:none;display:inline-block;text-decoration:none}
+.btn-p{background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff}
 .btn-s{border:1px solid #333;color:#fff;background:transparent}
-.hero-img{flex:1;min-width:300px;display:flex;justify-content:center}
-.hero-img img{width:380px;height:380px;object-fit:cover;border-radius:50%;box-shadow:0 0 60px #a855f7aa;border:3px solid #a855f7;animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-.section{padding:80px 8%}.title{text-align:center;font-size:42px}.title span{color:#a855f7}.sub{text-align:center;color:#666;margin:10px 0 40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
-.card{background:#15151d;border:1px solid #222;border-radius:20px;overflow:hidden;transition:.4s}
-.card:hover{transform:translateY(-8px);border-color:#a855f7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:30px}
+.card{background:#15151d;border:1px solid #222;border-radius:20px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:#a855f7}
 .card img{width:100%;height:200px;object-fit:cover}
 .card-body{padding:18px}
-.card-body b{color:#a855f7;display:block;margin:8px 0;font-size:18px}
-.order-box{max-width:520px;margin:40px auto;background:#15151d;border:1px solid #333;border-radius:24px;padding:30px}
+.cart-page-box{max-width:650px;margin:auto;background:#15151d;border:1px solid #333;border-radius:24px;padding:30px}
+.cart-item{display:flex;justify-content:space-between;background:#1c1c2a;padding:14px;border-radius:10px;margin-bottom:12px}
+.order-box{max-width:520px;margin:auto;background:#15151d;border-radius:24px;padding:30px;border:1px solid #333}
 .order-box input,.order-box select{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:1px solid #333;background:#0f0f15;color:#fff}
-.order-box input.invalid{border-color:#ff4d6d}
-.error{display:none;color:#ff4d6d;background:rgba(255,77,109,0.1);padding:8px;border-radius:8px;text-align:center;font-size:13px;margin-top:8px}
-footer{padding:30px 8%;border-top:1px solid #222;color:#666;text-align:center;margin-top:50px}
+.invalid{border-color:#ff4d6d !important}
+.error{display:none;color:#ff4d6d;background:rgba(255,77,109,0.1);padding:8px;border-radius:8px;text-align:center;margin-top:8px}
 </style>
 </head>
 <body>
 
-<div class="navbar"><div class="logo">COSMIC<span>.CAFE</span></div><div class="nav"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#order">Order</a><button class="cart-btn" onclick="document.getElementById('order').scrollIntoView()">Cart (<span id="cc">0</span>)</button></div></div>
-
-<section class="hero" id="home">
-<div class="left">
-<h1>Taste The <span>Universe</span> In Every Sip</h1>
-<p style="color:#888;margin:20px 0">Space-brewed coffee crafted beyond the stars. Ab images ke saath!</p>
-<a href="#menu" class="btn btn-p">Explore Menu</a> <a href="#order" class="btn btn-s">Order Now</a>
+<div class="navbar">
+<div class="logo">COSMIC<span>.CAFE</span></div>
+<div>
+<a onclick="showPage('home')" style="margin-right:15px;color:#aaa;cursor:pointer">Home</a>
+<a onclick="showPage('menu')" style="margin-right:15px;color:#aaa;cursor:pointer">Menu</a>
+<a onclick="showPage('cartPage')" class="btn btn-p" style="padding:8px 16px">🛒 Cart (<span id="cc">0</span>)</a>
 </div>
-<div class="hero-img">
-<img src="https://images.unsplash.com/photo-1518834107812-67b0b288f498?w=600" alt="Galaxy Drink">
 </div>
-</section>
 
-<section class="section" id="menu">
-<h2 class="title">Our <span>Cosmic</span> Menu</h2>
-<p class="sub">6 signature drinks with real images</p>
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+<h1 style="font-size:58px">Taste The <span style="color:#a855f7">Universe</span> In Every Sip</h1>
+<p style="color:#888;margin:20px 0">Space-brewed coffee crafted beyond stars.</p>
+<img src="https://images.unsplash.com/photo-1518834107812-67b0b288f498?w=600" style="width:350px;height:350px;border-radius:50%;object-fit:cover;box-shadow:0 0 50px #a855f7aa;display:block;margin:30px 0">
+<button class="btn btn-p" onclick="showPage('menu')">Explore Menu - New Page</button>
+</div>
+
+<!-- MENU PAGE - New Page -->
+<div id="menu" class="page">
+<h2 style="font-size:40px;text-align:center">Our <span style="color:#a855f7">Cosmic</span> Menu</h2>
 <div class="grid" id="grid"></div>
-</section>
+</div>
 
-<section id="order">
-<h2 class="title">Place Your <span>Order</span></h2>
-<p class="sub">Khali pe click karo to Invalid aayega</p>
-<form class="order-box" id="form">
+<!-- CART PAGE - New Page on Add to Cart -->
+<div id="cartPage" class="page">
+<h2 style="font-size:40px;text-align:center;margin-bottom:30px">Your Cart - <span style="color:#a855f7">New Page</span></h2>
+<div class="cart-page-box">
+<div id="cartItems"></div>
+<h3 style="margin:20px 0">Total: ₹<span id="tot">0</span></h3>
+<button class="btn btn-p" style="width:100%" onclick="showPage('orderPage')">Proceed to Order - New Page →</button>
+<button class="btn btn-s" style="width:100%;margin-top:10px" onclick="showPage('menu')">← Continue Shopping</button>
+</div>
+</div>
+
+<!-- ORDER PAGE - New Page -->
+<div id="orderPage" class="page">
+<h2 style="font-size:40px;text-align:center">Place Your Order - <span style="color:#a855f7">New Page</span></h2>
+<form class="order-box" id="form" style="margin-top:30px">
 <input type="text" id="n" placeholder="Full Name">
 <input type="text" id="a" placeholder="Address">
 <input type="tel" id="p" placeholder="Mobile (10 digit)">
-<select id="d"><option value="">Select Drink</option><option>Galaxy Latte - ₹299</option><option>Nebula Mocha - ₹349</option><option>Meteor Frappes - ₹279</option></select>
+<select id="d"><option value="">Select Drink</option><option>Galaxy Latte - ₹299</option><option>Nebula Mocha - ₹349</option></select>
 <select id="q"><option value="">Quantity</option><option>1 Cup</option><option>2 Cups</option></select>
 <p class="error" id="err">⚠️ Invalid / Incomplete form! Sab bharo.</p>
-<button type="submit" class="btn btn-p" style="width:100%;margin-top:10px">Confirm Order - ₹<span id="tot">0</span></button>
+<button type="submit" class="btn btn-p" style="width:100%;margin-top:12px">Confirm Order</button>
 </form>
-</section>
+</div>
 
-<footer>© 2026 COSMIC.CAFE • Images added • Made with 💜</footer>
+<!-- THANK YOU PAGE - New Page -->
+<div id="thanksPage" class="page" style="text-align:center">
+<h1 style="font-size:70px">🎉</h1>
+<h2 style="font-size:40px">Order <span style="color:#a855f7">Confirmed!</span></h2>
+<p style="color:#888;margin:15px 0">20 mins me delivery in Ghaziabad 🚀</p>
+<p id="oid" style="color:#a855f7;font-weight:bold"></p>
+<button class="btn btn-p" style="margin-top:20px" onclick="showPage('home')">Back to Home - New Page</button>
+</div>
 
 <script>
 const drinks=[
-{name:'Nebula Latte',price:299,img:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500',desc:'Lavender espresso, steamed oat milk, violet swirl'},
-{name:'Galaxy Cold Brew',price:349,img:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500',desc:'Starfruit cold brew, citrus spark, cosmic foam'},
-{name:'Stardust Matcha',price:279,img:'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500',desc:'Ceremonial matcha, coconut milk, stardust dust'},
-{name:'Plasma Pink Lemonade',price:249,img:'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=500',desc:'Hibiscus lemonade, citrus, sparkling nebula fizz'},
-{name:'Orbit Espresso',price:199,img:'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=500',desc:'Double shot espresso, hazelnut, zero-gravity foam'},
-{name:'Meteor Mocha',price:349,img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500',desc:'Rich mocha, dark chocolate, pink chili kick'},
+{name:'Nebula Latte',price:299,img:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500',desc:'Lavender espresso'},
+{name:'Galaxy Cold Brew',price:349,img:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500',desc:'Starfruit cold brew'},
+{name:'Stardust Matcha',price:279,img:'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500',desc:'Ceremonial matcha'},
+{name:'Plasma Lemonade',price:249,img:'https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=500',desc:'Hibiscus lemonade'},
+{name:'Orbit Espresso',price:199,img:'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=500',desc:'Double shot'},
+{name:'Meteor Mocha',price:349,img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500',desc:'Rich mocha'},
 ];
 let cart=[];
 const grid=document.getElementById('grid');
 drinks.forEach((x,i)=>{
-grid.innerHTML+=`<div class="card"><img src="${x.img}"><div class="card-body"><h4>${x.name}</h4><p style="color:#888;font-size:13px">${x.desc}</p><b>₹${x.price}</b><button class="btn btn-p" style="width:100%" onclick="add(${i})">Add to Cart +</button></div></div>`;
+grid.innerHTML+=`<div class="card"><img src="${x.img}"><div class="card-body"><h4>${x.name}</h4><p style="color:#888;font-size:13px">${x.desc}</p><b style="color:#a855f7">₹${x.price}</b><button class="btn btn-p" style="width:100%;margin-top:8px" onclick="add(${i})">Add to Cart - Open New Page</button></div></div>`;
 });
-function add(i){let d=drinks[i];let f=cart.find(c=>c.name===d.name);if(f)f.q++;else cart.push({name:d.name,price:d.price,q:1});update()}
-function update(){document.getElementById('cc').innerText=cart.reduce((s,c)=>s+c.q,0);document.getElementById('tot').innerText=cart.reduce((s,c)=>s+c.price*c.q,0)}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function add(i){
+ let d=drinks[i];let f=cart.find(c=>c.name===d.name);if(f)f.q++;else cart.push({name:d.name,price:d.price,q:1});
+ update();
+ showPage('cartPage'); // YAHI NAYA PAGE KHULEGA
+}
+function update(){
+ document.getElementById('cc').innerText=cart.reduce((s,c)=>s+c.q,0);
+ document.getElementById('tot').innerText=cart.reduce((s,c)=>s+c.price*c.q,0);
+ let box=document.getElementById('cartItems');
+ box.innerHTML=cart.length?'':'<p style="color:#666;text-align:center">Cart empty</p>';
+ cart.forEach((c,idx)=>{
+  box.innerHTML+=`<div class="cart-item"><span>${c.name} x${c.q}</span><span>₹${c.price*c.q} <b onclick="cart.splice(${idx},1);update()" style="color:#ff4d6d;cursor:pointer"> ✕</b></span></div>`;
+ });
+}
 document.getElementById('form').addEventListener('submit',e=>{
-e.preventDefault();
-let ok=true;
-['n','a','p','d','q'].forEach(id=>{let el=document.getElementById(id);let v=el.value.trim();if(!v || (id==='p' && !/^[6-9][0-9]{9}$/.test(v))){el.classList.add('invalid');ok=false}else el.classList.remove('invalid')});
-if(!ok){document.getElementById('err').style.display='block';return}
-document.getElementById('err').style.display='none';
-alert('🎉 Order Confirmed! Order ID: #COSMIC-'+Date.now().toString().slice(-6)+'\nTotal: ₹'+document.getElementById('tot').innerText);cart=[];update();e.target.reset();
+ e.preventDefault();
+ let ok=true;
+ ['n','a','p','d','q'].forEach(id=>{let el=document.getElementById(id);let v=el.value.trim();if(!v || (id==='p' && !/^[6-9][0-9]{9}$/.test(v))){el.classList.add('invalid');ok=false}else el.classList.remove('invalid')});
+ if(!ok){document.getElementById('err').style.display='block';return}
+ document.getElementById('err').style.display='none';
+ document.getElementById('oid').innerText='Order ID: #COSMIC-'+Date.now().toString().slice(-6);
+ showPage('thanksPage');
+ cart=[];update();e.target.reset();
 });
 </script>
 </body>
